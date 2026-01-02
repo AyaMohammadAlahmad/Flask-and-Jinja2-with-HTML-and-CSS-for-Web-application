@@ -1,4 +1,4 @@
-// Generated from E:/aya/study/مترجمات/‏‏‏‏untitled1 - نسخة - نسخة/src/antlar/htmlLexer.g4 by ANTLR 4.13.2
+// Generated from C:/Users/user/Downloads/Telegram Desktop/aproject (3)/‏‏‏‏untitled1 - نسخة - نسخة/Template-Compiler/java-part/src/antlar/htmlLexer.g4 by ANTLR 4.13.2
 package antlar;
 import org.antlr.v4.runtime.Lexer;
 import org.antlr.v4.runtime.CharStream;
