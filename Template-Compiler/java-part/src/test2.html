@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}Add product{% endblock %}
+
+{% block content %}
+<h2>Add product</h2>
+
+<form method="post">
+    <p>
+        <label>
+            Name:<br>
+            <input type="text" name="name">
+        </label>
+    </p>
+
+    <p>
+        <label>
+            Price:<br>
+            <input type="text" name="price">
+        </label>
+    </p>
+
+    <p>
+        <label>
+            Image URL:<br>
+            <input type="text" name="image">
+        </label>
+    </p>
+
+    <p>
+        <label>
+            Details:<br>
+            <textarea name="details" rows="4" cols="40"></textarea>
+        </label>
+    </p>
+
+    <p>
+        <button type="submit">Save</button>
+    </p>
+</form>
+{% endblock %}

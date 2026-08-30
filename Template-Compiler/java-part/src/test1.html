@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}All products{% endblock %}
+
+{% block content %}
+<h2>All products</h2>
+
+<table border="1" cellpadding="5">
+    <tr>
+        <th>Image</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Details</th>
+    </tr>
+
+    {% for product in products %}
+    <tr>
+        <td>
+            <img src="{{ product.image }}" alt="{{ product.name }}" width="100">
+        </td>
+        <td>{{ product.name }}</td>
+        <td>{{ product.price }}</td>
+        <td>
+            <a href="{{ url_for('product_detail', product_id=product.id) }}">
+                View
+            </a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

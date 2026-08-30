@@ -1,0 +1,45 @@
+=== JINJA SYMBOL TABLES ===
+
+-- index.jinja --
+[ template ]
+  FUNCTION url_for(_endpoint:any[pos]) (line 0)
+  FUNCTION csrf_token() [NOT attr-safe] (line 0)
+  FUNCTION render_field(field:any[pos], label?:any[kw], class_?:any[kw]) [NOT attr-safe] (line 0)
+  FUNCTION super() [NOT attr-safe] (line 0)
+  FUNCTION cycle(_first:any[pos]) (line 0)
+  FUNCTION range(_stop:any[pos]) (line 0)
+  PARAMETER filename (line 6)
+  VARIABLE product (line 29)
+  VARIABLE products (line 29)
+  VARIABLE product.image (line 32)
+  VARIABLE product.name (line 32)
+  VARIABLE product.price (line 35)
+  PARAMETER product_id (line 37)
+  VARIABLE product.id (line 37)
+
+-- add_product.jinja --
+[ template ]
+  FUNCTION url_for(_endpoint:any[pos]) (line 0)
+  FUNCTION csrf_token() [NOT attr-safe] (line 0)
+  FUNCTION render_field(field:any[pos], label?:any[kw], class_?:any[kw]) [NOT attr-safe] (line 0)
+  FUNCTION super() [NOT attr-safe] (line 0)
+  FUNCTION cycle(_first:any[pos]) (line 0)
+  FUNCTION range(_stop:any[pos]) (line 0)
+  PARAMETER filename (line 6)
+
+-- product_detail.jinja --
+[ template ]
+  FUNCTION url_for(_endpoint:any[pos]) (line 0)
+  FUNCTION csrf_token() [NOT attr-safe] (line 0)
+  FUNCTION render_field(field:any[pos], label?:any[kw], class_?:any[kw]) [NOT attr-safe] (line 0)
+  FUNCTION super() [NOT attr-safe] (line 0)
+  FUNCTION cycle(_first:any[pos]) (line 0)
+  FUNCTION range(_stop:any[pos]) (line 0)
+  PARAMETER filename (line 6)
+  VARIABLE product.image (line 22)
+  VARIABLE product.name (line 22)
+  VARIABLE product.price (line 26)
+  VARIABLE product.details (line 29)
+  PARAMETER product_id (line 35)
+  VARIABLE product.id (line 35)
+

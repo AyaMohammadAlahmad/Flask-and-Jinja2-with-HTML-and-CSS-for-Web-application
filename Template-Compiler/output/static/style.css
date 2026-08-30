@@ -1,0 +1,335 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500;600&display=swap');
+
+:root {
+    --bg: #F5F6FA;
+    --surface: #FFFFFF;
+    --text: #1A1D29;
+    --text-muted: #6B7280;
+    --border: #E5E7EB;
+
+    --primary: #4F46E5;
+    --primary-hover: #4338CA;
+    --primary-soft: #EEF2FF;
+
+    --danger: #E11D48;
+    --danger-hover: #BE123C;
+    --danger-soft: #FFF1F2;
+
+    --radius-sm: 6px;
+    --radius-md: 10px;
+    --radius-lg: 16px;
+
+    --shadow-sm: 0 1px 2px rgba(16, 24, 40, 0.06);
+    --shadow-md: 0 4px 12px rgba(16, 24, 40, 0.08);
+    --shadow-lg: 0 12px 28px rgba(16, 24, 40, 0.12);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    margin: 0;
+    padding: 0;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 {
+    font-family: 'Poppins', 'Inter', Arial, sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin: 0 0 10px 0;
+    color: var(--text);
+}
+
+a {
+    color: var(--primary);
+}
+
+:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
+/* ── التنقل العلوي ─────────────────────────────────────────────── */
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 28px;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    box-shadow: var(--shadow-sm);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+nav span {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 1.2em;
+    color: var(--text);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+nav span::before {
+    content: "";
+    width: 10px;
+    height: 10px;
+    border-radius: 3px;
+    background: var(--primary);
+    display: inline-block;
+}
+
+nav div a {
+    color: var(--text-muted);
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: 500;
+    font-size: 0.95em;
+    transition: color 0.15s ease;
+}
+
+nav div a:hover {
+    color: var(--primary);
+}
+
+/* ── هيكل الصفحة ───────────────────────────────────────────────── */
+
+.container {
+    max-width: 1040px;
+    margin: 0 auto;
+    padding: 32px 24px 60px;
+}
+
+.flash-msg {
+    background: var(--primary-soft);
+    color: var(--primary-hover);
+    padding: 12px 16px;
+    border: 1px solid #C7D2FE;
+    border-radius: var(--radius-sm);
+    margin-bottom: 18px;
+    font-size: 0.95em;
+    font-weight: 500;
+}
+
+/* ── شبكة المنتجات ─────────────────────────────────────────────── */
+
+.productsgrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.productcard {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 16px;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.productcard:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+}
+
+.productcard h3 {
+    font-size: 1.05em;
+    margin: 4px 0 6px;
+}
+
+.productimg {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: var(--radius-md);
+    margin-bottom: 10px;
+    background: var(--bg);
+}
+
+.productimg-large {
+    max-width: 340px;
+    width: 100%;
+    border-radius: var(--radius-lg);
+    margin: 14px 0;
+    box-shadow: var(--shadow-md);
+}
+
+.price {
+    font-weight: 600;
+    color: var(--primary);
+    margin: 2px 0 8px;
+    font-size: 1.05em;
+}
+
+/* ── الأزرار ────────────────────────────────────────────────────── */
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 16px;
+    border: 1px solid transparent;
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 0.9em;
+    transition: background-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.btn-primary {
+    background: var(--primary);
+    color: white;
+    box-shadow: var(--shadow-sm);
+}
+
+.btn-primary:hover {
+    background: var(--primary-hover);
+}
+
+.btn-danger {
+    background: var(--danger-soft);
+    color: var(--danger);
+    border-color: #FECDD3;
+}
+
+.btn-danger:hover {
+    background: var(--danger);
+    color: white;
+    border-color: var(--danger);
+}
+
+.btn-delete {
+    background: var(--danger-soft);
+    color: var(--danger);
+    border: 1px solid #FECDD3;
+    border-radius: var(--radius-sm);
+    padding: 6px 12px;
+    font-weight: 600;
+    font-size: 0.85em;
+    cursor: pointer;
+    transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.btn-delete:hover {
+    background: var(--danger);
+    color: white;
+    border-color: var(--danger);
+}
+
+.inline-form {
+    display: inline;
+}
+
+/* ── الفورم (إضافة منتج) ──────────────────────────────────────── */
+
+form label {
+    display: block;
+    margin-top: 14px;
+    margin-bottom: 6px;
+    font-weight: 600;
+    font-size: 0.9em;
+    color: var(--text);
+}
+
+form input,
+form textarea {
+    width: 100%;
+    max-width: 420px;
+    padding: 9px 12px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95em;
+    background: var(--surface);
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+form input:focus,
+form textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px var(--primary-soft);
+}
+
+form button[type="submit"] {
+    margin-top: 18px;
+    padding: 10px 22px;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: var(--radius-sm);
+    font-weight: 600;
+    font-size: 0.95em;
+    cursor: pointer;
+    box-shadow: var(--shadow-sm);
+    transition: background-color 0.15s ease;
+}
+
+form button[type="submit"]:hover {
+    background: var(--primary-hover);
+}
+
+/* ── الجدول (ناتج المترجم index.html/add_product.html/product_detail.html) ── */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 16px;
+    background: var(--surface);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+}
+
+th, td {
+    padding: 10px 14px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+}
+
+th {
+    background: var(--bg);
+    font-weight: 600;
+    font-size: 0.85em;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: var(--text-muted);
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+/* ── استجابة للموبايل ─────────────────────────────────────────── */
+
+@media (max-width: 560px) {
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        padding: 14px 18px;
+    }
+
+    nav div a {
+        margin-left: 0;
+        margin-right: 16px;
+    }
+
+    .container {
+        padding: 20px 16px 40px;
+    }
+}

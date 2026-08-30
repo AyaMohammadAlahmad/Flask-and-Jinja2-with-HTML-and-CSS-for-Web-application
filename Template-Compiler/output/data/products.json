@@ -1,0 +1,9 @@
+[
+  {
+    "id": 2,
+    "name": "Headphones",
+    "price": 150,
+    "image": "/static/images/headphones.svg",
+    "details": "Over-ear headphones with clear sound."
+  }
+]

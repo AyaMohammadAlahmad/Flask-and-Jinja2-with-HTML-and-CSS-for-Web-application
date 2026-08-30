@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Product Detail</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<nav>
+    <span>MyShop</span>
+    <div>
+        <a href="{{ url_for('show_products') }}">Products</a>
+        <a href="{{ url_for('add_product') }}">+ Add Product</a>
+    </div>
+</nav>
+<div class="container">
+    {% if product %}
+    <h1>{{ product.name }}</h1>
+    {% if product.image %}
+    <img class="productimg-large" src="{{ product.image }}" alt="{{ product.name }}">
+    {% endif %}
+    <p class="price">${{ product.price }}</p>
+    <p>{{ product.details }}</p>
+    <a class="btn btn-primary" href="{{ url_for('show_products') }}">Back</a>
+    <form method="POST" action="{{ url_for('delete_product', product_id=product.id) }}" style="display:inline;" data-confirm="Delete this product?">
+        <button type="submit" class="btn btn-danger">Delete</button>
+    </form>
+    {% else %}
+    <h2>Product not found</h2>
+    <a class="btn btn-primary" href="{{ url_for('show_products') }}">Back to Products</a>
+    {% endif %}
+</div>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+[CodeGen] Starting Code Generation...
+[CodeGen] Found 'products' assignment at line 6
+[CodeGen]   Extracted product: ProductData{id=1, name=Laptop, price=1200, image=https://via.placeholder.com/150x100?text=Laptop, details=Simple laptop for work and study.}
+[CodeGen]   Extracted product: ProductData{id=2, name=Headphones, price=150, image=https://via.placeholder.com/150x100?text=Headphones, details=Over-ear headphones with clear sound.}
+[CodeGen] Extracted 2 product(s) from Python AST.
+[CodeGen] Rendered template 'index.jinja' -> 'index.html' using context data: products=2, product=yes
+[CodeGen] Rendered template 'add_product.jinja' -> 'add_product.html' using context data: products=2, product=yes
+[CodeGen] Rendered template 'product_detail.jinja' -> 'product_detail.html' using context data: products=2, product=yes
+[CodeGen] Code Generation complete. Generated 3 file(s).

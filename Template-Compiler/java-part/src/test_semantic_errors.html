@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}Semantic Error Test{% endblock %}
+
+{% block content %}
+<h2>Testing Semantic Rules</h2>
+
+<!-- Rule 1: undefined variable -->
+<p>{{ undefined_var }}</p>
+
+<!-- Rule 2: undefined function call -->
+<p>{{ nonexistent_func() }}</p>
+
+<!-- Rule 3: non-attribute-safe function in attribute context -->
+<input class="{{ csrf_token() }}">
+
+<!-- Rule 2b: missing required argument -->
+<a href="{{ url_for() }}">Link</a>
+
+<!-- Rule 4: duplicate block (title defined twice) -->
+{% block title %}Duplicate Title{% endblock %}
+
+<!-- Rule 5: for loop with unused variable -->
+{% for unused_item in products %}
+<p>No use of loop var here</p>
+{% endfor %}
+
+{% endblock %}

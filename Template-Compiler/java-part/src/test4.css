@@ -1,0 +1,19 @@
+<style>
+body {
+font-family: Arial, sans-serif;
+margin: 20px;
+}
+
+h1, h2 {
+margin-bottom: 10px;
+}
+
+table {
+border-collapse: collapse;
+margin-top: 10px;
+}
+
+th, td {
+padding: 5px 10px;
+}
+</style>

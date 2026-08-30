@@ -1,0 +1,83 @@
+from flask import Flask, render_template, request, redirect, url_for
+
+app = Flask(__name__)
+
+# بيانات جاهزة للعرض - هاي هي المصفوفة اللي بيمرر منها الـ Generator البيانات لشجرة Jinja AST
+products = [
+    {
+        "id": 1,
+        "name": "Laptop",
+        "price": 1200,
+        "image": "https://via.placeholder.com/150x100?text=Laptop",
+        "details": "Simple laptop for work and study."
+    },
+    {
+        "id": 2,
+        "name": "Headphones",
+        "price": 150,
+        "image": "https://via.placeholder.com/150x100?text=Headphones",
+        "details": "Over-ear headphones with clear sound."
+    }
+]
+
+
+@app.route("/")
+def index():
+    # تحويل لصفحة عرض المنتجات
+    return redirect(url_for("show_products"))
+
+
+@app.route("/products")
+def show_products():
+    # (أ) عرض كل المنتجات
+    return render_template("index.jinja", products=products)
+
+
+@app.route("/products/add", methods=["GET", "POST"])
+def add_product():
+    # (ب) إضافة منتج
+    if request.method == "POST":
+        name = request.form["name"]
+        price = float(request.form["price"])
+        image = request.form["image"]
+        details = request.form["details"]
+
+        ids = [p["id"] for p in products]
+        new_id = (max(ids) + 1) if products else 1
+        products.append({
+            "id": new_id,
+            "name": name,
+            "price": price,
+            "image": image,
+            "details": details
+        })
+
+        return redirect(url_for("show_products"))
+
+    # GET -> عرض الفورم
+    return render_template("add_product.jinja")
+
+
+@app.route("/products/<int:product_id>")
+def product_detail(product_id):
+    # (ج) تفاصيل منتج
+    product = None
+    for p in products:
+        if p["id"] == product_id:
+            product = p
+            break
+
+    if product is None:
+        return "Product not found", 404
+
+    return render_template("product_detail.jinja", product=product)
+
+
+@app.route("/products/<int:product_id>/delete", methods=["POST"])
+def delete_product(product_id):
+    # (د) حذف منتج - كانت ناقصة بالنسخة الأصلية
+    remaining = [p for p in products if p["id"] != product_id]
+    products.clear()
+    for p in remaining:
+        products.append(p)
+    return redirect(url_for("show_products"))

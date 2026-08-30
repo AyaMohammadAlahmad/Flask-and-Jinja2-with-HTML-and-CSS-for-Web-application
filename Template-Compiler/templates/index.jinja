@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="ar">
+<head>
+    <meta charset="utf-8">
+    <title>All products</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<h1>Products Example</h1>
+
+<p>
+    <a href="{{ url_for('show_products') }}">All products</a> |
+    <a href="{{ url_for('add_product') }}">Add product</a>
+</p>
+
+<hr>
+
+<h2>All products</h2>
+
+<table border="1" cellpadding="5">
+    <tr>
+        <th>Image</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Actions</th>
+    </tr>
+
+    {% for product in products %}
+    <tr>
+        <td>
+            <img src="{{ product.image }}" alt="{{ product.name }}" width="100">
+        </td>
+        <td>{{ product.name }}</td>
+        <td>{{ product.price }}</td>
+        <td>
+            <a href="{{ url_for('product_detail', product_id=product.id) }}">View</a>
+            |
+            <form action="{{ url_for('delete_product', product_id=product.id) }}" method="post" class="inline-form">
+                <button type="submit" class="btn-delete">Delete</button>
+            </form>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

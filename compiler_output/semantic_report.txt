@@ -1,0 +1,10 @@
+=== COMPILER ERROR REPORT ===
+
+-- Lexical / Syntax analysis (Python) --
+No lexical or syntax errors found.
+
+-- Semantic analysis (Python) --
+No semantic errors found.
+
+-- Semantic analysis (Jinja template) --
+No semantic errors found.
